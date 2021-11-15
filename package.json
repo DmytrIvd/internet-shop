@@ -1,0 +1,11 @@
+{
+  "name": "internet-shop",
+  "version": "1.0.0",
+  "description": "The test project of internet shop",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dmytro Ivanyshyn",
+  "license": "ISC"
+}
