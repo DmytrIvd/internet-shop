@@ -21,15 +21,19 @@ function onScrollFooter() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("items-list").innerHTML = renderProducts(itemsHelper.getItems());
+
+  let params = (new URL(document.location)).searchParams;
+  let filter = params.get('filter');
+
+  let items = itemsHelper.getItems();
+
+  if (filter) {
+    items = items.filter(i => i.category === filter);
+  }
+
+  document.getElementById("items-list").innerHTML = renderProducts(items);
   document.getElementById("bascet-count").innerHTML = bascet.getItemsInBascet().length;
   document.getElementById('categories').innerHTML = renderCategories();
-
-  document.querySelectorAll('.filter-category').forEach((category) => {
-    category.addEventListener('click', (event) => {
-        
-    });
-  });
 
   document.querySelectorAll(".main-contents-list-item_addToBascet").forEach((button) => {
 

@@ -1,5 +1,8 @@
+import { categories } from "./categoriesHelper";
+
 export function renderItem(item, isInBascet = false) {
 
+    const categoryName = categories.getItem(item.category);
     const buttonContent = `<button id='item-${item.title}' key=${item.title} class="main-contents-list-item_addToBascet">${isInBascet ? "Added" : "Add to bascet"}</button>`;
 
     return (`<div class="main-contents-list-item">
@@ -9,7 +12,7 @@ export function renderItem(item, isInBascet = false) {
             ${item.description}
         </p>
         <p class="main-contents-list-item_category">
-           Category: ${item.category}
+           Category: ${categoryName.name}
         </p>
         ${buttonContent}
     </div>`);
