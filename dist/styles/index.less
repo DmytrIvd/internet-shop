@@ -1,0 +1,143 @@
+body,
+html {
+    background-color: aqua;
+    height          : 100%;
+    margin          : 0;
+}
+
+body {
+    display       : flex;
+    flex-direction: column;
+
+    .sticky-footer {
+        flex-shrink: 0;
+        font-size  : larger;
+
+    }
+
+    .main {
+        background-color: brown;
+        flex            : 1 0 auto;
+        display         : flex;
+
+        &-side-menu {
+            background: rgb(5, 68, 104);
+            width     : 20%;
+            height    : 100%;
+
+            &_list {
+                margin: 0;
+            }
+        }
+
+        &-contents {
+            width: 80%;
+
+            &-list {
+                padding  : 0.50rem;
+                display  : flex;
+                flex-wrap: wrap;
+
+                &-item {
+                    font-size    : medium;
+                    font-family  : 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                    margin-bottom: 0.5rem;
+                    flex         : 0 0 33.333333%;
+                    color        : rgb(135, 196, 207);
+
+                    // border       : 0.1rem black solid;
+                    &_title {
+                        font-size  : large;
+                        font-family: Georgia, 'Times New Roman', Times, serif;
+                    }
+
+                    &_image {
+                        width : 300px;
+                        height: 200px;
+                    }
+
+                    &_addToBascet {
+                        background-color: royalblue;
+                        width           : 50%;
+                        height          : 1.5rem;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .header {
+        padding   : 10px 16px;
+        background: #555;
+        color     : #f1f1f1;
+        display   : flex;
+
+        a {
+            text-decoration: none;
+            color          : #f1f1f1;
+        }
+
+        * {
+            flex: 1;
+        }
+
+        &-brand {
+            display        : flex;
+            justify-content: center;
+            align-content  : center;
+            flex-direction : column;
+            flex           : 1;
+            font-size      : 3rem;
+        }
+    }
+
+    .sticky {
+        position: fixed;
+        top     : 0;
+        width   : 100%
+    }
+}
+
+.bascet {
+    float: right;
+
+    &-link {
+        margin-left: 80%;
+        display    : flex;
+    }
+
+    &_img {
+        height: 3rem;
+    }
+}
+
+.pill-nav {
+    * {
+        display        : block;
+        text-align     : center;
+        padding        : 1.5rem;
+        text-decoration: none;
+        font-size      : larger;
+        border-radius  : 0.25rem;
+    }
+
+    .pill-link {
+        color: black;
+
+        &:hover {
+            background-color: #ddd;
+        }
+    }
+
+    .active {
+        background-color: dodgerblue;
+        color           : white;
+    }
+
+    .pill-button {
+        background-color: blue;
+        color           : white;
+        border          : 0.2rem rgb(11, 16, 29) solid;
+    }
+}

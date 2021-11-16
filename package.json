@@ -2,10 +2,25 @@
   "name": "internet-shop",
   "version": "1.0.0",
   "description": "The test project of internet shop",
-  "main": "index.html",
+  "private": "true",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack serve"
   },
   "author": "Dmytro Ivanyshyn",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmytrIvd/internet-shop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DmytrIvd/internet-shop/issues"
+  },
+  "homepage": "https://github.com/DmytrIvd/internet-shop#readme",
+  "devDependencies": {
+    "html-loader": "^3.0.1",
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
+  }
 }
