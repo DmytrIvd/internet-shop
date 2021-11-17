@@ -1,4 +1,4 @@
-import { categories } from "./categoriesHelper";
+import { categories } from "../helpers/categoriesHelper";
 
 export function renderCategories() {
     let html = '<a id="all-categories" key="category-unknown" href="?" class="pill-link filter-category">All</a>';

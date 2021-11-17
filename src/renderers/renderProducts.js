@@ -1,4 +1,4 @@
-import { bascet } from "./bascetHelper";
+import { bascet } from "../helpers/bascetHelper";
 import { renderItem } from "./renderProduct";
 
 export function renderProducts(items) {

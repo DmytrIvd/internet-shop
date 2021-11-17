@@ -1,4 +1,4 @@
-import { categories } from "./categoriesHelper";
+import { categories } from "../helpers/categoriesHelper";
 
 export function renderItem(item, isInBascet = false) {
 

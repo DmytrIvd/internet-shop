@@ -1,4 +1,4 @@
-import { itemsHelper } from "./itemsHelper";
+import { itemsHelper } from "../helpers/itemsHelper";
 
 export function renderBascetProducts(items) {
     let html = "";

@@ -1,5 +1,5 @@
-import { categories } from "./categoriesHelper"
-import { itemsHelper } from "./itemsHelper";
+import { categories } from './helpers/categoriesHelper'
+import { itemsHelper } from "./helpers/itemsHelper";
 import { Item } from "./Item"
 
 document.addEventListener("DOMContentLoaded", function () {

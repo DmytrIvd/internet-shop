@@ -1,27 +1,29 @@
-import { bascet } from "./bascetHelper";
-import { itemsHelper } from "./itemsHelper";
-import { renderCategories } from "./renderCategories";
-import { renderProducts } from "./renderProducts";
+import { configureHeader } from "./header";
+import { bascet } from "./helpers/bascetHelper";
+import { itemsHelper } from "./helpers/itemsHelper";
+import { renderCategories } from "./renderers/renderCategories";
+import { renderProducts } from "./renderers/renderProducts";
 
-window.onscroll = function () { onScrollFooter() };
-
-// Get the header
-var header = document.getElementById("header");
-
-// Get the offset position of the navbar
-var sticky = header.offsetTop;
-
-// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function onScrollFooter() {
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
+configureHeader();
 
 document.addEventListener("DOMContentLoaded", function () {
 
+  InitElements();
+
+  document.querySelectorAll(".main-contents-list-item_addToBascet").forEach((button) => {
+    button.addEventListener("click", clickBascetEvent);
+  });
+});
+
+function InitElements() {
+  let filteredItems = filterItems();
+
+  document.getElementById("items-list").innerHTML = renderProducts(filteredItems);
+  document.getElementById("bascet-count").innerHTML = bascet.getItemsInBascet().length;
+  document.getElementById('categories').innerHTML = renderCategories();
+}
+
+function filterItems() {
   let params = (new URL(document.location)).searchParams;
   let filter = params.get('filter');
 
@@ -31,29 +33,22 @@ document.addEventListener("DOMContentLoaded", function () {
     items = items.filter(i => i.category === filter);
   }
 
-  document.getElementById("items-list").innerHTML = renderProducts(items);
+  return items;
+}
+
+function clickBascetEvent(event) {
+  let element = event.target;
+  let key = event.target.getAttribute("key");
+
+  element.classList.toggle("main-contents-list-item_addedToBascet");
+
+  if (bascet.containsElement(key)) {
+    element.innerHTML = "Add to bascet";
+    bascet.deleteElement(key);
+  } else {
+    element.innerHTML = "Added to bascet";
+    bascet.addElement(key);
+  }
+
   document.getElementById("bascet-count").innerHTML = bascet.getItemsInBascet().length;
-  document.getElementById('categories').innerHTML = renderCategories();
-
-  document.querySelectorAll(".main-contents-list-item_addToBascet").forEach((button) => {
-
-    button.addEventListener("click", (event) => {
-      let element = event.target;
-      let key = event.target.getAttribute("key");
-
-      element.classList.toggle("main-contents-list-item_addedToBascet");
-
-      if (bascet.containsElement(key)) {
-        element.innerHTML = "Add to bascet";
-        bascet.deleteElement(key);
-      } else {
-        element.innerHTML = "Added to bascet";
-        bascet.addElement(key);
-      }
-
-
-
-      document.getElementById("bascet-count").innerHTML = bascet.getItemsInBascet().length;
-    });
-  });
-});
+}
