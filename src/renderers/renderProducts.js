@@ -1,7 +1,6 @@
-import { bascet } from "../helpers/bascetHelper";
-import { renderItem } from "./renderProduct";
-
-export function renderProducts(items) {
+const bascet = require("../helpers/bascetHelper");
+const renderItem = require("./renderProduct");
+module.exports = function renderProducts(items) {
     let html = "";
     //itemsHelper.getItems
 

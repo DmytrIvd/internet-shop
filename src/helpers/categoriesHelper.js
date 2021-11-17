@@ -1,33 +1,28 @@
-export var categories = (function () {
-    var methods = {};
+function getCategories() {
+    let categoriesStr = localStorage.getItem('categories');
+    let categories = [];
 
-    methods.getCategories = function () {
-        let categoriesStr = localStorage.getItem('categories');
-        let categories = [];
+    if (!categoriesStr) {
+        categories = [
+            { id: '1', name: "Something nasty" },
+            { id: '2', name: "Something spicy" },
+            { id: '3', name: "Something delicious" },
+        ];
 
-        if (!categoriesStr) {
-            categories = [
-                { id: '1', name: "Something nasty" },
-                { id: '2', name: "Something spicy" },
-                { id: '3', name: "Something delicious" },
-            ];
-
-            localStorage.setItem('categories', JSON.stringify(categories));
-        } else {
-            categories = JSON.parse(categoriesStr);
-        }
-
-        return categories;
+        localStorage.setItem('categories', JSON.stringify(categories));
+    } else {
+        categories = JSON.parse(categoriesStr);
     }
 
-    methods.getItem = function (id) {
-        let itemsStr = localStorage.getItem('categories')
+    return categories;
+}
 
+function getItem(id) {
+    let itemsStr = localStorage.getItem('categories')
 
-        let items = JSON.parse(itemsStr);
+    let items = JSON.parse(itemsStr);
 
-        return items.find(l => l.id === id);
-    }
+    return items.find(l => l.id === id);
+}
 
-    return methods;
-})();
+module.exports = { getCategories, getItem }

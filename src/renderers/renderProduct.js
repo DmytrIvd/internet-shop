@@ -1,6 +1,6 @@
-import { categories } from "../helpers/categoriesHelper";
+const categories = require("../helpers/categoriesHelper");
 
-export function renderItem(item, isInBascet = false) {
+module.exports = function renderItem(item, isInBascet = false) {
 
     const categoryName = categories.getItem(item.category);
 

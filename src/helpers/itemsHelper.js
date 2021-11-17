@@ -1,51 +1,46 @@
-export var itemsHelper = (function () {
+function addItem(item) {
+    let items = JSON.parse(localStorage.getItem('items'));
 
-    var methods = {};
+    if (!items) {
+        items = [];
+    }
 
-    methods.addItem = function (item) {
-        let items = JSON.parse(localStorage.getItem('items'));
+    items.push(item);
+    console.log(items);
 
-        if (!items) {
-            items = [];
+    localStorage.setItem('items', JSON.stringify(items));
+}
+
+function deleteItem(item) {
+    let items = JSON.parse(localStorage.getItem('items'));
+
+    if (items) {
+        let index = items.indexOf(item);
+
+        if (index > -1) {
+            items.splice(index, 1)
         }
-
-        items.push(item);
-        console.log(items);
-
-        localStorage.setItem('items', JSON.stringify(items));
     }
 
-    methods.deleteItem = function (item) {
-        let items = JSON.parse(localStorage.getItem('items'));
+    localStorage.setItem(JSON.stringify(items))
+}
 
-        if (items) {
-            let index = items.indexOf(item);
+function getItems() {
+    let items = JSON.parse(localStorage.getItem('items'));
 
-            if (index > -1) {
-                items.splice(index, 1)
-            }
-        }
+    return items;
+}
 
-        localStorage.setItem(JSON.stringify(items))
+function getItem(itemTitle) {
+    let itemsStr = localStorage.getItem('items')
+
+    if (itemsStr) {
+        let items = JSON.parse(itemsStr);
+
+        return items.find(l => l.title === itemTitle);
     }
 
-    methods.getItems = function () {
-        let items = JSON.parse(localStorage.getItem('items'));
+    return false;
+}
 
-        return items;
-    }
-
-    methods.getItem = function (itemTitle) {
-        let itemsStr = localStorage.getItem('items')
-
-        if (itemsStr) {
-            let items = JSON.parse(itemsStr);
-
-            return items.find(l => l.title === itemTitle);
-        }
-
-        return false;
-    }
-
-    return methods;
-})();
+module.exports = { addItem, deleteItem, getItems, getItem }

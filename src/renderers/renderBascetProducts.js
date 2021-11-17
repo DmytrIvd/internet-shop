@@ -1,6 +1,6 @@
-import { itemsHelper } from "../helpers/itemsHelper";
+const itemsHelper = require("../helpers/itemsHelper");
 
-export function renderBascetProducts(items) {
+module.exports = function renderBascetProducts(items) {
     let html = "";
     //itemsHelper.getItems
 
@@ -23,4 +23,3 @@ function renderBascetProduct(item) {
             </p>
     </div>`;
 }
-

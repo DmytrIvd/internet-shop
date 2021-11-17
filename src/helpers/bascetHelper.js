@@ -1,53 +1,49 @@
-export var bascet = (function () {
-    var methods = {};
+function getItemsInBascet() {
+    let itemsStr = sessionStorage.getItem('bascet-items');
+    let items = [];
 
-    methods.getItemsInBascet = function () {
-        let itemsStr = sessionStorage.getItem('bascet-items');
-        let items = [];
-
-        if (itemsStr) {
-            items = JSON.parse(itemsStr);
-        }
-
-        return items;
+    if (itemsStr) {
+        items = JSON.parse(itemsStr);
     }
 
-    methods.containsElement = function (item_title) {
-        let itemsStr = sessionStorage.getItem('bascet-items')
+    return items;
+}
 
-        if (itemsStr) {
-            let items = JSON.parse(itemsStr);
+function containsElement(item_title) {
+    let itemsStr = sessionStorage.getItem('bascet-items')
 
-            return items.includes(item_title);
-        }
+    if (itemsStr) {
+        let items = JSON.parse(itemsStr);
 
-        return false;
+        return items.includes(item_title);
     }
 
-    methods.addElement = function (item) {
-        let items = JSON.parse(sessionStorage.getItem('bascet-items'));
+    return false;
+}
 
-        if (!items) {
-            items = [];
-        }
+function addElement(item) {
+    let items = JSON.parse(sessionStorage.getItem('bascet-items'));
 
-        items.push(item);
-
-        sessionStorage.setItem('bascet-items', JSON.stringify(items));
+    if (!items) {
+        items = [];
     }
 
-    methods.deleteElement = function (item) {
-        let items = JSON.parse(sessionStorage.getItem('bascet-items'));
+    items.push(item);
 
-        if (items) {
-            let index = items.indexOf(item);
-            if (index > -1) {
-                items.splice(index, 1)
-            }
+    sessionStorage.setItem('bascet-items', JSON.stringify(items));
+}
+
+function deleteElement(item) {
+    let items = JSON.parse(sessionStorage.getItem('bascet-items'));
+
+    if (items) {
+        let index = items.indexOf(item);
+        if (index > -1) {
+            items.splice(index, 1)
         }
-
-        sessionStorage.setItem('bascet-items', JSON.stringify(items));
     }
 
-    return methods
-})();
+    sessionStorage.setItem('bascet-items', JSON.stringify(items));
+}
+
+module.exports = { getItemsInBascet, containsElement, addElement, deleteElement };
