@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
       let element = event.target;
       let key = event.target.getAttribute("key");
 
+      element.classList.toggle("main-contents-list-item_addedToBascet");
+
       if (bascet.containsElement(key)) {
         element.innerHTML = "Add to bascet";
         bascet.deleteElement(key);
@@ -48,6 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
         element.innerHTML = "Added to bascet";
         bascet.addElement(key);
       }
+
+
 
       document.getElementById("bascet-count").innerHTML = bascet.getItemsInBascet().length;
     });

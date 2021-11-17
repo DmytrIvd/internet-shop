@@ -9,7 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         const formData = new FormData(event.target);
+        let title = formData.get('title')
 
-        itemsHelper.addItem(new Item(formData.get('title'), formData.get('description'), formData.get('category'), formData.get('image')))
+        if (itemsHelper.getItem(title)) {
+            alert('This title already exists!');
+            return;
+        }
+
+        itemsHelper.addItem(new Item(title, formData.get('description'), formData.get('category'), formData.get('image')));
+        form.reset();
     })
 });

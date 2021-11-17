@@ -3,7 +3,11 @@ import { categories } from "./categoriesHelper";
 export function renderItem(item, isInBascet = false) {
 
     const categoryName = categories.getItem(item.category);
-    const buttonContent = `<button id='item-${item.title}' key=${item.title} class="main-contents-list-item_addToBascet">${isInBascet ? "Added" : "Add to bascet"}</button>`;
+
+    const buttonContent = `<button id='item-${item.title}' key=${item.title} 
+    class="main-contents-list-item_addToBascet ${isInBascet ? "main-contents-list-item_addedToBascet" : ""}">
+        ${isInBascet ? "Added to bascet" : "Add to bascet"}
+    </button>`;
 
     return (`<div class="main-contents-list-item">
         <img src='${item.image}' class="main-contents-list-item_image" />

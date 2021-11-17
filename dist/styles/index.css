@@ -53,6 +53,9 @@ body .main-contents-list-item_addToBascet {
   width: 50%;
   height: 1.5rem;
 }
+body .main-contents-list-item_addedToBascet {
+  opacity: 50%;
+}
 body .header {
   padding: 10px 16px;
   background: #555;
