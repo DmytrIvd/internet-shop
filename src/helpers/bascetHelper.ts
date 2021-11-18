@@ -46,4 +46,8 @@ function deleteElement(item: string) {
     sessionStorage.setItem('bascet-items', JSON.stringify(items));
 }
 
-export default { getItemsInBascet, containsElement, addElement, deleteElement };
+function getLength() {
+    return getItemsInBascet().length;
+}
+
+export default { getItemsInBascet, containsElement, addElement, deleteElement, getLength };

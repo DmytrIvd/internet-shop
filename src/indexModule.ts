@@ -32,7 +32,7 @@ function clickBascetEvent(event) {
         bascet.addElement(key);
     }
 
-    document.getElementById("bascet-count").innerHTML = bascet.getItemsInBascet().length.toString();
+    document.getElementById("bascet-count").innerHTML = bascet.getLength().toString();
 }
 
 function InitElements() {
