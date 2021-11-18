@@ -13,7 +13,7 @@ function containsElement(item_title: string) {
     let itemsStr = sessionStorage.getItem('bascet-items')
 
     if (itemsStr) {
-        let items = JSON.parse(itemsStr);
+        let items: string[] = JSON.parse(itemsStr);
 
         return items.includes(item_title);
     }
