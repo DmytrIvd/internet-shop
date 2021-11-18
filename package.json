@@ -5,7 +5,7 @@
   "private": "true",
   "scripts": {
     "test": "jest",
-    "build": "webpack serve"
+    "start": "webpack serve"
   },
   "author": "Dmytro Ivanyshyn",
   "license": "ISC",

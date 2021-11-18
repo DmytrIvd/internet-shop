@@ -8,8 +8,8 @@ describe('Testing click', () => {
         const bascet = require('../helpers/bascetHelper').default;
 
 
-        bascet.containsElement.mockImplementation(_ => true);
-        bascet.getLength.mockImplementation(_ => 0);
+        bascet.containsElement.mockImplementation(() => true);
+        bascet.getLength.mockImplementation(() => 0);
 
         document.body.innerHTML = `
                  <p id="bascet-count">1</p>
@@ -35,8 +35,8 @@ describe('Testing click', () => {
         const bascet = require('../helpers/bascetHelper').default;
         const clickBascetEvent = require('../indexModule').default.clickBascetEvent;
 
-        bascet.containsElement.mockImplementation(_ => false);
-        bascet.getLength.mockImplementation(_ => 1);
+        bascet.containsElement.mockImplementation(() => false);
+        bascet.getLength.mockImplementation(() => 1);
 
         document.body.innerHTML = `
          <p id="bascet-count">0</p>
