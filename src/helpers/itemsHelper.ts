@@ -13,7 +13,7 @@ function addItem(item: Item) {
     localStorage.setItem('items', JSON.stringify(items));
 }
 
-function deleteItem(item) {
+function deleteItem(item: Item) {
     let items = JSON.parse(localStorage.getItem('items'));
 
     if (items) {
@@ -37,7 +37,7 @@ function getItem(itemTitle: string) {
     let itemsStr = localStorage.getItem('items')
 
     if (itemsStr) {
-        let items = JSON.parse(itemsStr);
+        let items: Item[] = JSON.parse(itemsStr);
 
         return items.find(l => l.title === itemTitle);
     }

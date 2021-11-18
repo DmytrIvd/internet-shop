@@ -18,7 +18,7 @@ function filterItems() {
     return items;
 }
 
-function clickBascetEvent(event) {
+function clickBascetEvent(event: any) {
     let element = event.target;
     let key = event.target.getAttribute("key");
 

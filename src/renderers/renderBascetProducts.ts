@@ -6,10 +6,12 @@ export default function renderBascetProducts(items: string[]) {
     //itemsHelper.getItems
 
     if (items) {
-        items.forEach(element => {
-            let elemten = itemsHelper.getItem(element);
+        items.forEach(key => {
+            let element = itemsHelper.getItem(key);
 
-            html += renderBascetProduct(elemten);
+            if (element) {
+                html += renderBascetProduct(element);
+            }
         });
     }
 

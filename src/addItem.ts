@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function onClick(form: HTMLFormElement) {
-    return function (event) {
+    return function (event: any) {
         event.preventDefault();
         const formData = new FormData(event.target);
         let title = formData.get('title').valueOf() as string;
