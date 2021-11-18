@@ -7,10 +7,10 @@ const form = document.getElementById('add-form');
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementsByName('category').item(0).innerHTML = categories.getCategories().map(t => `<option value="${t.id}">${t.name}</option>`).toString();
 
-    form.addEventListener('submit', onClick(form))
+    form.addEventListener('submit', onClick(form as HTMLFormElement))
 });
 
-function onClick(form) {
+function onClick(form: HTMLFormElement) {
     return function (event) {
         event.preventDefault();
         const formData = new FormData(event.target);
