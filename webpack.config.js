@@ -2,8 +2,9 @@ const path = require('path');
 
 module.exports = {
 
-    mode: 'development',
+    mode: 'production',
     entry: { main: './src/index.ts', bascet: './src/bascet.ts', addItem: './src/addItem.ts' },
+    devtool: 'source-map',
     module: {
         rules: [
             {

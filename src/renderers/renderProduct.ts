@@ -1,10 +1,9 @@
+import { Item } from "../entities/Item";
 import categories from "../helpers/categoriesHelper";
 
-export default function renderItem(item, isInBascet = false) {
-
-    const categoryName = categories.getItem(item.category);
-
-    const buttonContent = `<button id='item-${item.title}' key=${item.title} 
+export default function renderItem(item: Item, isInBascet: boolean = false) {
+    const category = categories.getItem(item.category);
+    const buttonContent: string = `<button id='item-${item.title}' key=${item.title} 
     class="main-contents-list-item_addToBascet ${isInBascet ? "main-contents-list-item_addedToBascet" : ""}">
         ${isInBascet ? "Added to bascet" : "Add to bascet"}
     </button>`;
@@ -16,7 +15,7 @@ export default function renderItem(item, isInBascet = false) {
             ${item.description}
         </p>
         <p class="main-contents-list-item_category">
-           Category: ${categoryName.name}
+           Category: ${category.name}
         </p>
         ${buttonContent}
     </div>`);

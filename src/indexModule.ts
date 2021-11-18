@@ -12,7 +12,7 @@ function filterItems() {
     let items = itemsHelper.getItems();
 
     if (filter) {
-        items = items.filter(i => i.category === filter);
+        items = items.filter(i => i.category.toString() === filter);
     }
 
     return items;

@@ -1,4 +1,4 @@
-import { Item } from "../Item";
+import { Item } from "../entities/Item";
 
 function addItem(item: Item) {
     let items = JSON.parse(localStorage.getItem('items'));
@@ -28,7 +28,7 @@ function deleteItem(item) {
 }
 
 function getItems() {
-    let items = JSON.parse(localStorage.getItem('items'));
+    let items: Item[] = JSON.parse(localStorage.getItem('items'));
 
     return items;
 }

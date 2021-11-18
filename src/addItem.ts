@@ -1,6 +1,6 @@
 import categories from './helpers/categoriesHelper'
 import itemsHelper from "./helpers/itemsHelper";
-import { Item } from "./Item"
+import { Item } from "./entities/Item"
 
 const form = document.getElementById('add-form');
 
@@ -22,10 +22,10 @@ function onClick(form) {
         }
 
         let description: string = formData.get('description').valueOf() as string,
-            category: string = formData.get('category').valueOf() as string,
+            category: number = +formData.get('category').valueOf(),
             image: string = formData.get('image').valueOf() as string;
 
-        let item: Item = { title: title, descritpion: description, category: category, image: image }
+        let item: Item = { title: title, description: description, category: category, image: image }
         // title, , formData.get('category'), formData.get('image'))
         itemsHelper.addItem(item);
         form.reset();
