@@ -2,7 +2,6 @@ const bascet = require("../helpers/bascetHelper");
 const renderItem = require("./renderProduct");
 module.exports = function renderProducts(items) {
     let html = "";
-    //itemsHelper.getItems
 
     if (items) {
         items.forEach(element => {

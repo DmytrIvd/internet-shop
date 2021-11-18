@@ -1,9 +1,9 @@
 const categories = require("../helpers/categoriesHelper");
 
-module.exports = function renderCategories() {
+module.exports = function renderCategories(categories) {
     let html = '<a id="all-categories" key="category-unknown" href="?" class="pill-link filter-category">All</a>';
-    let cat = categories.getCategories();
-    cat.forEach(element => {
+
+    categories.forEach(element => {
         html += `<a id='category-${element.id}' key=${element.id} href="?filter=${element.id}" class="pill-link filter-category">${element.name}</a>`;
     });
 
